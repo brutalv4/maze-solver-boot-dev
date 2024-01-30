@@ -1,8 +1,10 @@
 from tkinter import Tk, BOTH, Canvas
 
+from .line import Line
+
 
 class Window(object):
-    def __init__(self, width, height):
+    def __init__(self, width: int, height: int):
         self.__root = Tk()
         self.__root.title("Maze Solver")
         self.__root.protocol("WM_DELETE_WINDOW", self.close)
@@ -24,3 +26,6 @@ class Window(object):
 
     def close(self):
         self.__is_running = False
+
+    def draw_line(self, line: Line, fill_color: str):
+        line.draw(self.__canvas, fill_color)
